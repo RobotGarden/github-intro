@@ -14,7 +14,12 @@
 
 At this point your local master and upstream/master should be on the same commit. That's the state we want to keep the local master in.
 
-We won't bother keeping origin/master up-to-date with upstream/master. You can, if you like, just by pushing changes from the local master to origin/master. But we're not going to do any changes in the master branch, so we can let origin/master languish.
+We can let origin/master languish, since we will never generate pull requests from that branch. However, you can always update origin/master like this:
+
+1. Switch to the master branch.
+2. Click the Push button and select to push master to the origin/master branch.
+
+At that point, four branches should be side-by-side on the same commit: upstream/master, origin/master, origin/HEAD, and the local master. Again, that's optional (but looks very clean).
 
 ## Making the Local Master Match upstream/master
 
@@ -43,7 +48,7 @@ It's best if the changes are rebased to the tip to keep the history as linear as
 
 1. Make sure your local master is up-to-date with upstream/master, as described above.
 1. Switch to the feature branch.
-1. Rebase and fix any conflicts.
+1. Rebase and fix any conflicts. Use Actions > Continue Rebase if there were conflicts, do not commit.
 1. Commit any changes necessary to fix the conflicts.
 1. Create a pull request from the feature branch using these parameters:
 
