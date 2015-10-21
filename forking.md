@@ -9,3 +9,10 @@
 1. Go to the original repository in GitHub and copy the clone URL.
 1. In SourceTree, add a new remote called "upstream" using the original repository
   clone URL.
+
+## Making Changes and Committing
+
+1. Create a new local branch, say "new-feature" and switch to it.
+1. Edit files.
+1. Fetch changes from all remotes.
+1. If remote has changed ...
