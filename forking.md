@@ -9,13 +9,22 @@
 1. Go to the original repository in GitHub and copy the clone URL.
 1. In SourceTree, add a new remote called "upstream" using the original repository
   clone URL.
+1. Fetch changes from all remotes.
+1. Right-click on the master branch, and select Track Remote Branch > upstream/master, and click OK when asked to confirm.
+
+We won't bother keeping origin/master up-to-date with upstream/master. You can, if you like, just by pushing changes from the local master to origin/master. But we're not going to do any changes in the master branch, so we can let origin/master languish.
+
+## Making the Local Master Match upstream/master
+
+Periodically you will have to update your local master to match upstream/master. Do that as follows:
+
+1. Fetch changes from all remotes.
+2. Switch to the master branch.
+3. Click the Pull button and pull from origin/master. Since you are not making any direct changes to the local master, this should not produce any conflicts.
 
 ## Getting Ready to Do Work on a Feature
 
-1. Fetch all changes from all remotes.
-2. Switch to the master branch.
-3. Pull any changes from upstream/master to the local master so that it matches the tip of upstream/master.
-4. If origin/master is now behind the local master, push to origin/master. At this point the local master, origin/master, and upstream/master should match.
+1. Make sure your local master matches upstream/master, as described above.
 5. Create a branch for the new feature.
 
 ## Working on a Feature
@@ -28,3 +37,8 @@
 
 It's best if the changes are rebased to the tip to keep the history as linear as possible.
 
+1. Make sure your local master is up-to-date with upstream/master, as described above.
+1. Switch to the feature branch.
+1. Rebase and fix any conflicts.
+1. Commit any changes necessary to fix the conflicts.
+1. Create a pull request from the feature branch.
