@@ -1,6 +1,14 @@
 # github-class
 A class in using Git and GitHub for the RobotGarden makerspace.
 
+# Standalone Workflow
+
+[Standalone workflow instructions](standalone.md)
+
+# Forking Workflow
+
+[Forking workflow instructions](forking.md)
+
 # License
 
 The materials for this class are licensed under the Apache license. See the file LICENSE for details.
