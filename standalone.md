@@ -9,3 +9,4 @@
 1. Switch to master branch.
 1. Merge from new branch into master.
 1. Push master branch to remote.
+1. Delete new branch, pushing deletion to server.
