@@ -49,7 +49,6 @@ It's best if the changes are rebased to the tip to keep the history as linear as
 1. Make sure your local master is up-to-date with upstream/master, as described above.
 1. Switch to the feature branch.
 1. Rebase and fix any conflicts. Use Actions > Continue Rebase if there were conflicts, do not commit.
-1. Commit any changes necessary to fix the conflicts.
 1. Create a pull request from the feature branch using these parameters:
 
 Submit via remote: origin: https://www.github.com
