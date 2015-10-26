@@ -1,6 +1,33 @@
 # github-class
 A class in using Git and GitHub for the RobotGarden makerspace.
 
+# Installation
+
+Mac OS X
+* Install SourceTree.
+
+Windows
+* Install SourceTree.
+* Install P4Mere.
+
+# Initial Setup
+
+SourceTree
+* In Preferences, add your name and email address.
+* Change "Check default remotes for updates" to every 1 minute?
+* Windows users: In Preferences > Diff tab, set P4Merge to your diff and merge tools.
+
+Command Line
+* Set your identity.
+
+        git config --global user.name "John Doe"
+        git config --global user.email johndoe@example.com
+
+* Optionally, set your desired editor for commit messages. Examples:
+
+        git config --global core.editor emacs
+        git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession"
+
 # Standalone Workflow
 
 [Standalone workflow instructions](standalone.md)
