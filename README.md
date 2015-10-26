@@ -9,6 +9,10 @@ A class in using Git and GitHub for the RobotGarden makerspace.
 
 [Forking workflow instructions](forking.md)
 
+# Tags
+
+[Information on tags](tags.md)
+
 # License
 
 The materials for this class are licensed under the Apache license. See the file LICENSE for details.
