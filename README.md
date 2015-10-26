@@ -13,6 +13,10 @@ A class in using Git and GitHub for the RobotGarden makerspace.
 
 [Information on tags](tags.md)
 
+# Notes
+
+GitHub does not use git-flow: http://scottchacon.com/2011/08/31/github-flow.html
+
 # License
 
 The materials for this class are licensed under the Apache license. See the file LICENSE for details.
