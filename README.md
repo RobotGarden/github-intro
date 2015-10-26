@@ -49,6 +49,20 @@ Command Line
 
 * [Pro Git Book](https://git-scm.com/book/en/v2)
 
+# Cloning a Repository
+
+First, go to GitHub and copy the repository URL.
+
+SourceTree
+* In the repository list (Window > SourceTree), click "+ New Repository" > Clone from URL.
+* Enter the URL from GitHub and press "Clone".
+
+Command Line
+* In the directory where you want to create a subdirectory with the cloned repository,
+
+        git clone url-copied-from-github
+
+
 # Standalone Workflow
 
 [Standalone workflow instructions](standalone.md)
