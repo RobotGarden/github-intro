@@ -28,6 +28,27 @@ Command Line
         git config --global core.editor emacs
         git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession"
 
+# Getting Help
+
+SourceTree
+[SourceTree Knowledge Base](https://confluence.atlassian.com/display/SOURCETREEKB/SourceTree+Knowledge+Base+Home?continue=https%3A%2F%2Fconfluence.atlassian.com%2Fdisplay%2FSOURCETREEKB%2FSourceTree%2BKnowledge%2BBase%2BHome&application=cac)
+
+Command Line
+* `git help` or `git help command`
+
+        rivoli:forking-test merose$ git help checkout
+        
+        GIT-CHECKOUT(1)                   Git Manual                   GIT-CHECKOUT(1)
+        
+        NAME
+               git-checkout - Checkout a branch or paths to the working tree
+        
+        SYNOPSIS
+               git checkout [-q] [-f] [-m] [<branch>]
+        ...
+
+* [Pro Git Book](https://git-scm.com/book/en/v2)
+
 # Standalone Workflow
 
 [Standalone workflow instructions](standalone.md)
