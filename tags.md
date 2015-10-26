@@ -16,3 +16,8 @@ be called *gorp-1.0.zip*, which will have a top-level directory called *gorp-1.0
 
 Release notes are not defined by Git, nor are they part of the Git repository
 maintained by GitHub.
+
+## Tags and SourceTree
+
+Tags are not automatically fetched from remote repositories. You can check the box
+when fetching to retrieve tags from remotes as well as changes.
