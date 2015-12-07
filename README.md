@@ -8,7 +8,7 @@ Mac OS X
 
 Windows
 * Install SourceTree.
-* Install P4Mere.
+* Install P4Merge.
 
 # Initial Setup
 
@@ -78,6 +78,8 @@ Command Line
 # Notes
 
 GitHub does not use git-flow: http://scottchacon.com/2011/08/31/github-flow.html
+
+Should we talk about submodules?
 
 # License
 
