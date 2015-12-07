@@ -1,23 +1,30 @@
-# github-class
+= github-class
 A class in using Git and GitHub for the RobotGarden makerspace.
 
-# Installation
+== Installation
 
 Mac OS X
+
 * Install SourceTree.
 
 Windows
+
 * Install SourceTree.
+
 * Install P4Merge.
 
-# Initial Setup
+== Initial Setup
 
 SourceTree
+
 * In Preferences, add your name and email address.
+
 * Change "Check default remotes for updates" to every 1 minute?
+
 * Windows users: In Preferences > Diff tab, set P4Merge to your diff and merge tools.
 
 Command Line
+
 * Set your identity.
 
         git config --global user.name "John Doe"
@@ -28,28 +35,32 @@ Command Line
         git config --global core.editor emacs
         git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -nosession"
 
-# Getting Help
+== Getting Help
 
 SourceTree
-[SourceTree Knowledge Base](https://confluence.atlassian.com/display/SOURCETREEKB/SourceTree+Knowledge+Base+Home?continue=https%3A%2F%2Fconfluence.atlassian.com%2Fdisplay%2FSOURCETREEKB%2FSourceTree%2BKnowledge%2BBase%2BHome&application=cac)
+
+link:https://confluence.atlassian.com/display/SOURCETREEKB/SourceTree+Knowledge+Base+Home?continue=https%3A%2F%2Fconfluence.atlassian.com%2Fdisplay%2FSOURCETREEKB%2FSourceTree%2BKnowledge%2BBase%2BHome&application=cac[SourceTree Knowledge Base]
 
 Command Line
+
 * `git help` or `git help command`
-
-        rivoli:forking-test merose$ git help checkout
++
+----
+rivoli:forking-test merose$ git help checkout
         
-        GIT-CHECKOUT(1)                   Git Manual                   GIT-CHECKOUT(1)
+GIT-CHECKOUT(1)                   Git Manual                   GIT-CHECKOUT(1)
         
-        NAME
-               git-checkout - Checkout a branch or paths to the working tree
+NAME
+       git-checkout - Checkout a branch or paths to the working tree
         
-        SYNOPSIS
-               git checkout [-q] [-f] [-m] [<branch>]
-        ...
+SYNOPSIS
+       git checkout [-q] [-f] [-m] [<branch>]
+...
+----
 
-* [Pro Git Book](https://git-scm.com/book/en/v2)
+* link:https://git-scm.com/book/en/v2[Pro Git Book]
 
-# Cloning a Repository
+== Cloning a Repository
 
 First, go to GitHub and copy the repository URL.
 
@@ -63,25 +74,25 @@ Command Line
         git clone url-copied-from-github
 
 
-# Standalone Workflow
+== Standalone Workflow
 
-[Standalone workflow instructions](standalone.md)
+link:standalone.asciidoc[Standalone workflow instructions]
 
-# Forking Workflow
+== Forking Workflow
 
-[Forking workflow instructions](forking.md)
+link:forking.asciidoc[Forking workflow instructions]
 
-# Tags
+== Tags
 
-[Information on tags](tags.md)
+link:tags.asciidoc[Information on tags]
 
-# Notes
+== Notes
 
 GitHub does not use git-flow: http://scottchacon.com/2011/08/31/github-flow.html
 
-Should we talk about submodules?
+Should we talk about submodules? No, too complicated.
 
-# License
+== License
 
 The materials for this class are licensed under the Apache license. See the file LICENSE for details.
 
@@ -90,8 +101,7 @@ Copyright 2015 Mark Rose
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0.
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

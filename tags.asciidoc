@@ -1,0 +1,23 @@
+= Tag Usage
+
+Tags can be _lightweight_ or _annotated_. The default on the command line
+is a lightweight tag. However, these are not recommended as they are local
+to a developer, not pushed to the GitHub or other server repository. The
+SourceTree GUI, for example, creates _annotated_ tags. You have to ask for
+a lightweight tag, and the GUI marks that choice as _not recommended_.
+
+== Tags and GitHub
+
+GitHub creates _releases_ for any tags you create. You can also create release notes
+on the GitHub server for any releases. A tag of the form "v_version_" allows download
+of a ZIP or tar-ball where the "v" is removed. For example, a project called _gorp_
+might have a tag called _v1.0_. The ZIP download for the corresponding release will
+be called _gorp-1.0.zip_, which will have a top-level directory called _gorp-1.0_.
+
+Release notes are not defined by Git, nor are they part of the Git repository
+maintained by GitHub.
+
+== Tags and SourceTree
+
+Tags are not automatically fetched from remote repositories. You can check the box
+when fetching to retrieve tags from remotes as well as changes.

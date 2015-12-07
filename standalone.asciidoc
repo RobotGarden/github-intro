@@ -1,0 +1,12 @@
+= Standalone Workflow
+
+== Steps For a New Feature or Bug Fix
+
+. Create new branch for a new feature or bug fix.
+. Edit files in new branch.
+. Commit into new branch.
+. Push new branch to remote.
+. Switch to master branch.
+. Merge from new branch into master.
+. Push master branch to remote.
+. Delete new branch, pushing deletion to server.
