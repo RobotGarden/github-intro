@@ -14,10 +14,27 @@ After participating in part 1 of this intro, you should be able to:
 * Edit a text file using the GitHub browser interface
 * View a file's history and find out who changed what lines
 * Clone a repository to your local desktop
-* Edit files in your desktop
-* Commit changes from your desktop to GitHub
+* Edit files in your desktop and commit locally
+* Fix typos in commit messages
+* Push changes from your desktop to GitHub
 * Understand the problems with editing both in desktop and GitHub
 * Fix problems caused by editing in both places
+* Participate in a Shared GitHub Repository (not forked)
+
+=== What's Not Covered
+
+In the time available, we won't be able to cover these topics. A follow-on class will address these.
+
+* Ignoring files
+* Forking a GitHub repository
+* Submitting pull requests
+* Responding to pull requests
+* Branching and merging
+* Rebasing and rewriting history
+* Using the stash
+* The GitHub issue tracking system
+* The Wiki associated with a GitHub repository
+* Git workflows
 
 == What is Git? What is GitHub?
 
@@ -44,11 +61,19 @@ In addition, a revision control system acts as an online back of your
 files. Cloud-based revision control systems such as GitHub back up
 your files on remote servers, aiding in disaster recovery.
 
+=== Key Git Features
+
+* High performance
+* Local copy of entire history
+* Ability to work off-line
+* Support for large projects and many collaborators
+
 === Other Online Providers Supporting Git
 
 You can use Git with other online hosting providers. Some popular providers are:
 
-* BitBucket--Provided by Atlassian, free for repositories wiht 5 or fewer developers.
+* GitHub--Free for public repositories
+* BitBucket--Provided by Atlassian, free for repositories with 5 or fewer developers.
 * SourceForge--Popular free repository, supports other revision control systems, too.
 
 === Other Resources
@@ -63,11 +88,84 @@ link:https://www.atlassian.com/git/tutorials/[Atlassian Git Tutorials]
 
 link:http://rancoud.com/sourcetree-git-use/[A SourceTree/Git tutorial]
 
+link:http://swcarpentry.github.io/git-novice/[Software Carpentry Git Tutorial]
+
 == Viewing a GitHub Repository
+
+Most GitHub repositories are publicly available, to promote sharing, and can be viewed in a web browser. You can also search for repositories using the search box at the top of the GitHub page. As an example, let's search for "`RobotsForKids.`"
+
+.GitHub search results
+image:robots-for-kids-search.png[Sample search results, 567, 240, role="thumb"]
+
+Each result shows both the user name (`RobotGarden`, for example) and the repository name (`RobotsForKids`). You can click on either part, to see all the repositories for that user, or to see only the repository.
+
+If we go to a repository, we see a list of files and directories in that repository, plus the contents of a "`README'" file, if it exists.
+
+.Main page for a repository
+image:repository-main-page.png[Main page of a repository, 527, 421, role="thumb"]
+
+Many things are clickable on this page:
+
+File names:: go to that file to view contents and history, or to edit the file on GitHub
+image:watch-button.png[Watch button, 98, 36]:: get notified of changes
+image:star-button.png[Star button, 72, 36]:: add to your _starred repositories_ (favorites), accessed by _Your stars_ menu item in upper-right dropdown
+_Issues_:: link to issue tracking system
+_Wiki_:: link to Wiki pages for this repository
+_Settings_:: change repository name, add collaborators, delete repository, and more
+_commits_:: see all changes
+_branch_:: see _branches_, separate lines of work
+_releases_:: access released versions
+_contributors_:: see all who have made commits
+
+In addition, there are other buttons for getting information or manipulating the repository:
+
+image:branch-button.png[The branch button, 136, 40]:: Move to a different _branch_ (not covered today)
+
+image:new-file-button.png[New file button, 78, 36]:: Create a new text file using the GitHub GUI
+
+image:copy-URL-button.png[Button for copying the repository URL, 40, 32]:: copy the URL of the repository to use locally
+
+image:download-zip-button.png[Button for downloading a ZIP file, 114, 32]:: download a ZIP file of the current repository contents (as opposed to downloading a _release_)
+
+=== README Files
+
+On GitHub, any directory may have a README file. If it does, the contents of that file are shown when navigating into the directory on GitHub. The README file may have any of these names:
+
+`README.md`:: A formatted README file using Markdown syntax. (Most common on GitHub.)
+`README.asciidoc`:: A formatted README file using Asciidoc syntax. May instead use the `.adoc` extension. (My favorite. Used to write the Git user manual.)
+`README.txt`:: A plain text README file.
+`README`:: A plain text README file.
+
+*Recommendation:* Create either `README.md` or `README.asciidoc` in the root directory of every repository. Learn enough of either Markdown (`.md`) or Asciidoc (`.asciidoc`) syntax to write useful documentation.
+
+=== License Files
+
+Repositories usually also contain a license file, usually called `LICENSE`, although this is not required. There is a good reason for this: in the USA, if you create any written document, it is automatically copyrighted (unless you specify otherwise) and all rights are reserved to you. Therefore, unless you provide a license, no one can reuse your work, unless they break the law. (If you publish in GitHub or other repository where there are "`Terms of Service`" agreements, you probably are granting certain rights automatically, however.)
+
+*Recommendation:* Add a license file to the top of every repository. Use the license that most appropriately describes how others may reuse your work.
+
+Choosing a license is beyond the scope of this class, but here are a few ideas:
+
+* For code repositories, the most popular licenses are:
+** Commercial-friendly: Apache, BSD, MIT, and LGPL
+** Commercial-restricted: GPL
+* For text and artwork repositories, the most popular is the Creative Commons license.
+* If you want to put your work in the public domain, use something like
+the link:http://unlicense.org/[Unilicense].
+
+There are other options, too. Perl uses the Artistic License, the Eclipse organization uses the Eclipse Public License, and the Mozilla organization uses the Mozilla Public License. The only license I'd recommend against is the Eclipse Public License, because lawyers at two firms I've worked for would not allow us to use any library using that license. Also see sites like http://choosealicense.com/ for more information.
+
+=== Exercise 1
+
+. In a browser, log on to your GitHub account and in the search box at the top type "`arduino'" and press _Search_. There should be tens of thousands of results, but the first should be called `arduino/Arduino`.
 
 == Creating a GitHub Repository
 
+A `.gitignore` file--important for code repositories.
+
 == Making Changes in GitHub
+
+The edit button: image:git-edit-button.png[Git edit button, 31, 31]
 
 == Installing Git and SourceTree
 
@@ -76,6 +174,8 @@ link:http://rancoud.com/sourcetree-git-use/[A SourceTree/Git tutorial]
 == Cloning a GitHub Repository
 
 == Committing Local Changes
+
+Use `^R` or Command-R to refresh the view by getting local file status.
 
 == Pushing Changes to GitHub
 

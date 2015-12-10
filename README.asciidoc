@@ -102,9 +102,14 @@ link:tags.asciidoc[Information on tags]
 === Exercise 1--Browsing a Repository
 
 . On GitHub, browse to the https://github.com/arduino/Arduino repository.
-. Look at the history for README.md.
+. Look at the history for README.md. How many changes have been made this year?
 . Use the _blame_ view to find out when line 11 was last changed, and by whom.
-. Find a line that was deleted in the same commit.
+
+=== Creating a New Repository
+
+. Create a repository, add a license, and create a README.
+. Edit the README to add a description.
+
 
 === Exercise 2--Creating a Repository
 
