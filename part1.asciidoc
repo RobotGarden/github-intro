@@ -1,0 +1,136 @@
+= Introduction to Git and GitHub--Part 1
+:imagesdir: ./images
+:toc: macro
+
+An introduction to using Git and GitHub for revision control.
+
+toc::[]
+
+== Class Goals
+
+After participating in part 1 of this intro, you should be able to:
+
+* Create a new repository in GitHub
+* Edit a text file using the GitHub browser interface
+* View a file's history and find out who changed what lines
+* Clone a repository to your local desktop
+* Edit files in your desktop
+* Commit changes from your desktop to GitHub
+* Understand the problems with editing both in desktop and GitHub
+* Fix problems caused by editing in both places
+
+== What is Git? What is GitHub?
+
+Git is a _revision control system_ that was created in 2005
+to support the Linux
+project, replacing an earlier non-free, commercial system. It is designed
+to be fast, simple, free, and to support parallel development by many
+distributed developers. In addition, it supports both small and very
+large projects equally well.
+
+GitHub is a cloud-based hosting service since 2007
+for Git repositories. It supports
+all the features of Git and adds new, web-based features such as issue
+tracking and Wikis.
+
+=== Revision Control
+
+A _revision control system_ keeps track of your files over time, retaining
+all versions of each file and allowing you to see the history of
+changes. You can see what was changed when, and see the details about
+exactly what was changed.
+
+In addition, a revision control system acts as an online back of your
+files. Cloud-based revision control systems such as GitHub back up
+your files on remote servers, aiding in disaster recovery.
+
+=== Other Online Providers Supporting Git
+
+You can use Git with other online hosting providers. Some popular providers are:
+
+* BitBucket--Provided by Atlassian, free for repositories wiht 5 or fewer developers.
+* SourceForge--Popular free repository, supports other revision control systems, too.
+
+=== Other Resources
+
+link:https://git-scm.com/book/en/v2[Pro Git online book]
+
+link:https://git-scm.com/documentation[Official Git Documentation]
+
+link:https://training.github.com/[Official Git Training]
+
+link:https://www.atlassian.com/git/tutorials/[Atlassian Git Tutorials]
+
+link:http://rancoud.com/sourcetree-git-use/[A SourceTree/Git tutorial]
+
+== Viewing a GitHub Repository
+
+== Creating a GitHub Repository
+
+== Making Changes in GitHub
+
+== Installing Git and SourceTree
+
+=== Setting Your Name and Email
+
+== Cloning a GitHub Repository
+
+== Committing Local Changes
+
+== Pushing Changes to GitHub
+
+== Renaming and Removing Files
+
+== Fixing Problems
+
+=== Merging Remote Changes
+
+== Making Releases
+
+
+== GitHub History View
+
+image:github-history.png[]
+
+== Viewing Git History
+
+image:git-graph.png[]
+
+----
+commit ff13b303d45bd2584576814112b5bb5ce3e468d4
+Author: Federico Fissore <f.fissore@arduino.cc>
+Date:   Fri Dec 4 14:14:15 2015 +0100
+
+    Forgot to remove old arduino-builder SHAs
+
+commit 580bcb500361ea9735d5c74a9f3ce7b7b45d715c
+Author: Federico Fissore <f.fissore@arduino.cc>
+Date:   Fri Dec 4 14:03:54 2015 +0100
+
+    Updating arduino-builder to 1.3.6
+
+commit 9a39e5e6aca5fafd61e72dc65ac2bd9a76df8a42
+Author: Federico Fissore <f.fissore@arduino.cc>
+Date:   Fri Dec 4 09:55:17 2015 +0100
+
+    Some configuration may totally miss network interfaces, even localhost. Fixes #4249
+
+commit a2848716a06936c375355e02498c3efccd9153e4
+Author: Federico Fissore <f.fissore@arduino.cc>
+Date:   Thu Dec 3 16:34:25 2015 +0100
+
+    Added -Dportable=true param to ant. You can build your own portable version of
+    the IDE
+
+commit 66117a5cc0510c7f63d8ba7c6e740aa29a8b473c
+Author: Federico Fissore <f.fissore@arduino.cc>
+Date:   Thu Dec 3 11:05:25 2015 +0100
+
+    Burn Bootloader was run in the UI thread, avoiding intermediate messages to be printed to IDE console
+
+commit 91245e216432bfac6bb1ff9fde705989d5847bf3
+Author: Federico Fissore <f.fissore@arduino.cc>
+Date:   Thu Dec 3 09:54:30 2015 +0100
+
+    Updating arduino-builder to 1.3.5
+----

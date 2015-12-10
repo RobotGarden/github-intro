@@ -86,9 +86,48 @@ link:forking.asciidoc[Forking workflow instructions]
 
 link:tags.asciidoc[Information on tags]
 
+== Class Outline
+
+* Creating a repository
+* Making changes on GitHub
+* Cloning to a local copy
+* Making local changes
+* Committing changes
+* Pushing changes to GitHub
+* Creating a release (talk about tags)
+* Fixing problems: merging from GitHub to local
+
+== Exercises
+
+=== Exercise 1--Browsing a Repository
+
+. On GitHub, browse to the https://github.com/arduino/Arduino repository.
+. Look at the history for README.md.
+. Use the _blame_ view to find out when line 11 was last changed, and by whom.
+. Find a line that was deleted in the same commit.
+
+=== Exercise 2--Creating a Repository
+
+. Install SourceTree and/or GitHub, and perhaps P4Merge.
+. Create GitHub account, if needed.
+. Create a new repository with a license.
+. Add a README file.
+. Edit the README.md file to include some text saying this file was created for a GitHub class.
+. Commit the change to the README.md file.
+. Turn off the Wiki feature.
+. Look at the commit history, and view the commit where you edited the README.md file.
+
+=== Exercise 2
+
+=== Exercise 3
+
+=== Exercise 4
+
 == Notes
 
-GitHub does not use git-flow: http://scottchacon.com/2011/08/31/github-flow.html
+GitHub does not use git-flow: http://scottchacon.com/2011/08/31/github-flow.html. Instead uses GitHub Flow.
+
+To rename files, need to either use `git mv` or Actions > Move in SourceTree.
 
 Should we talk about submodules? No, too complicated.
 
