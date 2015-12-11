@@ -1,0 +1,28 @@
+= Exercise 1 Solution
+:imagesdir: ./images
+
+The Arduino repository is at https://github.com/arduino/Arduino.
+
+. Does the repository display README information below the list of files? If so, what format is it written in, Markdown (`.md`) or Asciidoc (`.asciidoc`)?
++
+_In the list of files one can see `README.md`, so yes, the repository has a README, and it is in Markdown format._
+
+. Go to the README file and show its history. When was the last change in 2014?
++
+_Click on `README.md` and then press the "`History`" button. The last change in 2014 was committed on March 24, 2014._
+
+. Show the "`blame`" history for the README file. Who last modified line 20, and when?
++
+Click on the "`Blame`" button. Line 20 was last modified in commit `128678c` by `cmaglie` (Cristian Maglie) on October 23, 2013._
+
+. What is the latest release of the Arduino repository, and when was it released?
++
+_From the main repository page, click the "`releases`" link. The latest release is version 1.6.6, released on Nov 3, 2015._
+
+. What license does the Arduino project use?
++
+_By viewing the `license.txt` file, you can see that it uses the "`Gnu General Public License, version 2`" as the license._
+
+. Go to the file `arduino-core/src/cc/arduino/Compiler.java`. What line was changed on October 26, 2015?
++
+_Go to that file, click History, then click the commit ID for that date, `d8d70ee`. The added line, highlighted in green, is line 358._

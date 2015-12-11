@@ -1,0 +1,8 @@
+= Exercise 2 Solution
+:imagesdir: ./images
+
+. Using your GitHub account, create a new repository.
++
+_I used the information below, but you could have used anything you like._
++
+image:create-a-repository.png[Creating a repository, 481, 384, role="thumb"]

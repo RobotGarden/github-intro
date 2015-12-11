@@ -57,6 +57,10 @@ all versions of each file and allowing you to see the history of
 changes. You can see what was changed when, and see the details about
 exactly what was changed.
 
+The Git revision control system essentially keeps track of snapshots of your files over time. And any point you can recover an older version or see what changes you made.
+
+image:snapshots.png[Git snapshots over time, 558, 213, role="thumb"]
+
 In addition, a revision control system acts as an online back of your
 files. Cloud-based revision control systems such as GitHub back up
 your files on remote servers, aiding in disaster recovery.
@@ -157,35 +161,342 @@ There are other options, too. Perl uses the Artistic License, the Eclipse organi
 
 === Exercise 1
 
-. In a browser, log on to your GitHub account and in the search box at the top type "`arduino'" and press _Search_. There should be tens of thousands of results, but the first should be called `arduino/Arduino`.
+In a browser, log on to your GitHub account and in the search box at the top type "`arduino'" and press _Search_. There should be tens of thousands of results, but the first should be called `arduino/Arduino`. Click on it to go to that repository.
+
+. Does the repository display README information below the list of files? If so, what format is it written in, Markdown (`.md`) or Asciidoc (`.asciidoc`)?
+
+. Go to the README file and show its history. When was the last change in 2014?
+
+. Show the "`blame`" history for the README file. Who last modified line 20, and when?
+
+. What is the latest release of the Arduino repository, and when was it released?
+
+. What license does the Arduino project use?
+
+. Go to the file `arduino-core/src/cc/arduino/Compiler.java`. What line was changed on October 26, 2015?
+
+link:ex1-solution.asciidoc[Exercise 1 solution]
 
 == Creating a GitHub Repository
 
-A `.gitignore` file--important for code repositories.
+=== Making Changes in GitHub
 
-== Making Changes in GitHub
+When viewing a text file, you can click the edit button image:git-edit-button.png[Git edit button, 31, 31] to begin editing the file within the browser. When you are finished editing you can either press `cancel` to abandon your changes or scroll to the bottom of the page where you can fill out the "`Commit Changes`" form to commit your change to the repository.
 
-The edit button: image:git-edit-button.png[Git edit button, 31, 31]
+image:commit-form.png[The commit form, 500, 166, role="thumb"]
+
+Normally you should type a short description in the first line (recommended no more 50 characters) and a longer description, if needed, in the large text box. Then press the "`Commit Changes'" button to finish the commit. You can also commit to a new branch, but that is beyond the scope of this introduction.
+
+=== Markdown and Asciidoc in One Minute
+
+When editing text files, such as the README, you will normally use one of the two main _lightweight markup_ syntaxes, Markdown or Asciidoc. You can choose either. Both Markdown and Asciidoc allow you to type plain text which will be
+converted automatically into HTML to render in the browser. They also
+support special conventions for adding section headers and text formatting.
+
+There are a lot of features in both which we won't cover here, but here is a very brief cheat-sheet.
+
+[options="headers", cols="1a,1a,1a"]
+|===
+| Markdown | Asciidoc | Result
+
+|
+----
+# header
+## header
+### header
+...
+----
+
+|
+----
+= header
+== header
+=== header
+...
+----
+
+| document title, section header, subsection, etc.
+
+|
+----
+Blank lines delimit paragraphs.
+
+Like this.
+----
+
+|
+----
+Blank lines delimit paragraphs.
+
+Like this.
+----
+
+| Blank lines delimit paragraphs.
+
+Like this.
+
+|
+----
+some **bold** text, *italic* text, and `code`.
+----
+
+|
+----
+some *bold* text, _italic_ text, and `code`.
+----
+
+| some *bold* text, _italic_ text, and `code`.
+
+|
+----
+Indent lines to make them code blocks
+
+  sum = a + b
+  diff = a - b
+----
+
+|
+----
+Indent lines to make them code blocks
+
+  sum = a + b
+  diff = a - b
+----
+
+| Indent lines to make them code blocks
+
+  sum = a + b
+  diff = a - b
+
+|
+----
+A bulleted list:
+* one
+* two
+
+A numbered list:
+1. first
+1. second
+----
+
+|
+----
+A bulleted list:
+* one
+* two
+
+A numbered list:
+. first
+. second
+----
+
+| A bulleted list:
+
+* one
+* two
+
+A numbered list:
+
+. first
+. second
+
+|===
+
+[NOTE]
+====
+Asciidoc requires a blank line after headers, while Markdown does not.
+====
+
+=== Adding Files
+
+You can also press the _New File_ button image:new-file-button.png[New file button, 78, 36] to add a text file to the repository. You will be able to edit the contents of the new file immediately. Use a file extension of `.md` or `.asciidoc` if you want GitHub to render the file as HTML content automatically.
+
+To complete the file addition, fill out the commit form at the bottom of the page just as you would when editing an existing file.
+
+=== Exercise 2
+
+. Using your GitHub account, create a new repository.
+
+. Add a README file to your repository, using either Markdown or Asciidoc format, and add a descriptive paragraph, a section header, and another sentence or two. Then commit the changes.
+
+. Create a new file called `events.md` (or `events.asciidoc`). Add to the file a list of major US holidays. Then commit the change.
+
+. Edit the README file, adding a line that says to look at the events page for major holidays, and commit the change. (For extra credit: figure out how to create a hyperlink to the events page from the README page.)
+
+. What is the commit ID for the commit in which you added the README file?
+
+link:ex2-solution.asciidoc[Exercise 2 Solution]
 
 == Installing Git and SourceTree
 
-=== Setting Your Name and Email
+The GitHub GUI is handy for creating and editing documentation files in Markdown or Asciidoc format, but has a lot of limitations. In particular, you cannot add binary files such as images. But also, if you are writing code you want to edit the files locally, not on GitHub. For that reason you need a _Git client._ The two clients we will use are _SourceTree_, a GUI client, and the Git command line client.
 
-== Cloning a GitHub Repository
+For this class you should use either SourceTree or the command-line Git client. (You can try both, if you're ambitious.)
 
-== Committing Local Changes
+=== Installing SourceTree
+
+==== Getting SourceTree
+
+SourceTree is a free product from Atlassian, the company that makes the Jira issue tracking system, the Confluence Wiki, and the Bamboo continuous integration server software. It requires a free registration after 30 days of use. (I have not had any spam from them after registrating, but YMMV.)
+
+Download and install SourceTree from the SourceTree site:
+
+https://www.sourcetreeapp.com/
+
+==== Configuring SourceTree
+
+The first time you run SourceTree it will prompt you to connect with an exsiting repository account.
+
+image:add-an-account.png[Adding an account]
+
+Select _GitHub_ from the dropdown account list and enter your credentials. Then press _Continue_. (You can choose to skip this step for now, if you prefer.)
+
+You will then be asked if you want to "`Clone'" your first repository from your remote account.
+
+image:clone-first-repo.png[]
+
+Select the repository you created earlier. SourceTree will suggest a default directory location for the local copy. Change it if you like. Then press _Continue_. You should then see the SourceTree window for your repository:
+
+image:branch-view.png[View of the master branch, 581, 423]
+
+There are several parts to this window:
+
+Left sidebar:: Allows you to switch between the _branch view_ and the _working copy_, or to switch branches, among other things.
+
+Top button bar:: Allows you to pull or push changes to the remote server, among many other things.
+
+Commit list:: Shows all commits.
+
+Commit details panel:: Details the commit selected in the commit list.
+
+==== Configuring Your Name
+
+Before you make changes using SourceTree, it's important to configure your name and email address to accompany your commits. Go to the _Preferences_ dialog and enter your name and email in the boxes shown:
+
+image:sourcetree-preferences.png[Preferences dialog]
+
+While you are there, you may want to go to the _Update_ tab and turn on
+automatic checking for updates to SourceTree.
+
+image:check-for-updates.png[Turning on update checking]
+
+=== Installing the Git Command-Line Client
+
+==== Getting the Git Command-Line Client
+
+The Git command-line client can be downloaded, for Windows and OS X, from the Git web site:
+
+https://git-scm.com/downloads
+
+For Linux, it is better to use the package manager for your Linux system. (And Git may already be installed.) For example, for Ubuntu you could install Git via:
+
+  sudo apt-get install git
+
+==== Setting Your Name and Email
+
+Once installed, the first thing you should do is configure your name and email address. (See https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+
+----
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+----
+
+The Git configuration is stored in a file called `.gitconfig`, usually in your home directory. It is a text file that you can edit, although it is safer to use the `git` command to change settings.
+
+NOTE: You can view all your settings through the command
+`git config --global --list`. There is also a `--local` configuration file specific to a single repository. Local configurations override global configurations.
+
+==== Configuring Your Editor
+
+The Git command line will spawn an editor to edit commit messages. On Linux this is `nano`, by default, a newer, popular editor for Linux configuration files. If you don't want `nano`, or if you are using Windows, you will need to configure your editor. For example,
+
+----
+C:\Desktop> git config core.editor notepad
+----
+
+or
+
+----
+$ git config core.editor vim
+----
+
+==== Cloning a GitHub Repository
+
+To use your GitHub repository locally, you must clone it. First, go to your repository in GitHub and copy the URL using the button: image:copy-URL-button.png[Button for copying the repository URL, 40, 32].
+
+Then, in a shell or command window, move to the parent directory where you want to clone your repository. Clone it by using the `git clone` command:
+
+----
+git clone https://github.com/your-user-name/repository-name
+----
+
+== Browsing the Repository Locally
+
+In SourceTree, when looking at the `master` branch, you see a complete list of changes that have been made. You can click on any change to see details of what was changed in each file.
+
+From the command line, you use `git log` to see changes.
+
+----
+$ git log
+commit 3a668e2600c4f8285590782998555056c5a96afb
+Author: Mark Rose <markrose@acm.org>
+Date:   Thu Dec 10 14:35:42 2015 -0800
+
+    Added more class materials.
+    
+    Clarified what is covered, improved references, and added information on viewing a Git Repository.
+
+commit 5d5a238e3cbe51a87de418832d980a049ccd744f
+Author: Mark Rose <markrose@acm.org>
+Date:   Thu Dec 10 02:18:00 2015 -0800
+
+    Added the initial version of the class materials, and updated the outline in the README.
+
+commit 688626bccdd665f01a52158fcf8c348a35f5e239
+Author: Mark Rose <markrose@acm.org>
+Date:   Mon Dec 7 11:28:12 2015 -0800
+
+    Converted to Asciidoc format. Added Makefile for creating local HTML previews through asciidoctor.
+
+commit 328c44121fa576e4580806a55d93bcf78588ebef
+Author: Mark Rose <markrose@acm.org>
+Date:   Mon Dec 7 09:27:01 2015 -0800
+...
+$
+----
+
+
+== Making Changes Locally
+
+The files in your repository are stored in three different ways. First, a _working copy_ is stored a normal files. The layout exactly matches what you will see on the GitHub server.
+
+Second, after you make changes to a file you must _stage_ the changes before committing. This copies the file to a staging area. If you change your mind before commiting, you can _unstage_ the file as well, deleting the staged copy.
+
+Finall, you can commit changes from the staging area to the local repository. The local repository is a complete copy of what is on the GitHub server, except for any changes you have not yet _pushed_ to the server, or any changes made on the server that you have not yet _pulled_ to your local copy. Any other users working in the same repository will also have a complete copy of all versions.
+
+image:areas.png[The areas a file may be in, 401, 221, role="thumb"]
+
+NOTE: The staging area and local copy of the repository are stored in a `.git` directory. You should rarely, if ever, manipulate any of those files directly.
+
+=== Editing a File
+
+To make changes to a file, simply edit it. (Or copy a new file on top of it.) There is no "`checkout`" process in Git--all files are always editable.
 
 Use `^R` or Command-R to refresh the view by getting local file status.
 
-== Pushing Changes to GitHub
+=== Pushing Changes to GitHub
 
-== Renaming and Removing Files
+== More Local Changes
+
+=== Renaming and Removing Files
 
 == Fixing Problems
 
 === Merging Remote Changes
 
 == Making Releases
+
+A `.gitignore` file--important for code repositories.
 
 
 == GitHub History View
