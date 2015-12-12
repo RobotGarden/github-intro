@@ -1,4 +1,64 @@
 = Exercise 3 Solution
 :imagesdir: ./images
 
+. Install SourceTree or the Git command-line tools, if not already installed. Then clone the repository you created in <<Exercise 2>>.
++
+_In SourceTree, You should clone the repository either by going to the repository window *Remote* tab, or by copying the repository URL in GitHub and using the *+ New Repository* button. From the command line, use `git clone url-from-github`._
+
+. Edit the README file, adding this new content, ...
++
+_Any text editor will do._
+
+. Move the README file to the staging area and commit the changes. Verify that the log shows a new commit.
++
+_At this point the *master* branch will be ahead of the *origin/master* branch. In SourceTree you should be able to see this in the commit list. From the command line, if *master* is ahead of *origin/master*, you can tell from the output of `git status`:_
++
+----
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+----
+
+. Push the new changes to the remote on GitHub. Verify that the local _master_ branch and the *origin*/_master_ branch are in synch.
++
+_In SourceTree, you should see *master*, *origin/master*, and *origin/HEAD* on the same commit line. From the command line, `git status` should say that_ `Your branch is up-to-date with 'origin/master'.`
+
+. Create a new file called `hello.md` with this content: ...
+
+. Add the new file `hello.md` to the staging area.
+
+. Modify `hello.md` again, adding this new section: ...
+
+. Notice that there is now a copy in the staging area, with the original content, and also a copy that is not staged, with the newer content. Add the newer copy to the staging area.
++
+_In SourceTree you can see the file listed in both *Staged files* and *Unstaged files*. Clicking the checkbox in either will either stage or unstage both. From the command line, `git status` will also show the file twice._
++
+----
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   hello.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   hello.md
+----
+
+. Commit the changes.
+
+. Edit the README file and modify the text as follows: ...
+
+. Stage the changes to the README and commit.
+
+. Push both commits to the GitHub origin. Verify that both the local _master_ and _origin/master_ are on the same commit.
++
+_In SourceTree, you should see *master*, *origin/master*, and *origin/HEAD* on the same commit line. From the command line, `git status` should say that_ `Your branch is up-to-date with 'origin/master'.`
+
 link:part1.asciidoc#_exercise_3[Return to Exercise 3]

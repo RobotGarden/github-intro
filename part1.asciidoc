@@ -582,6 +582,62 @@ This pushes to the remote named `origin` any changes on the `master` branch that
 
 . Install SourceTree or the Git command-line tools, if not already installed. Then clone the repository you created in <<Exercise 2>>.
 
+. Edit the README file, adding this new content:
++
+----
+## Preamble
+
+We the people of the United States of America, in order to form a
+more perfect union...
+----
+
+. Move the README file to the staging area and commit the changes. Verify that the log shows a new commit.
+
+. Push the new changes to the remote on GitHub. Verify that the local _master_ branch and the *origin*/_master_ branch are in synch.
+
+. Create a new file called `hello.md` with this content:
++
+----
+# Hello, There
+
+This is a test of the emergency broadcast system. If this had been
+an actual emergency, you would have been informed where to tune...
+----
+
+. Add the new file `hello.md` to the staging area.
+
+. Modify `hello.md` again, adding this new section:
++
+----
+## Another Section
+
+When in the course of human events, it becomes necessary...
+----
+
+. Notice that there is now a copy in the staging area, with the original content, and also a copy that is not staged, with the newer content. Add the newer copy to the staging area.
+
+. Commit the changes.
+
+. Edit the README file and modify the text as follows:
++
+Old text:
++
+----
+We the people of the United States of America, in order to form a
+more perfect union...
+----
++
+New text:
++
+----
+We the rulers of the dictatorship of Pottsylvania, in order to
+form a more perfect police state...
+----
+
+. Stage the changes to the README and commit.
+
+. Push both commits to the GitHub origin. Verify that both the local _master_ and _origin/master_ are on the same commit.
+
 link:ex3-solution.asciidoc[Exercise 3 Solution]
 
 == More Local Changes
