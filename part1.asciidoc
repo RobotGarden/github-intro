@@ -215,41 +215,48 @@ There are a lot of features in both which we won't cover here, but here is a ver
 ...
 ----
 
-| document title, section header, subsection, etc.
+| document title, section
+header, subsection, etc.
 
 |
 ----
-Blank lines delimit paragraphs.
+Blank lines delimit
+paragraphs.
 
 Like this.
 ----
 
 |
 ----
-Blank lines delimit paragraphs.
+Blank lines delimit
+paragraphs.
 
 Like this.
 ----
 
-| Blank lines delimit paragraphs.
+| Blank lines delimit
+paragraphs.
 
 Like this.
 
 |
 ----
-some **bold** text, *italic* text, and `code`.
+some **bold** text, *italic*
+text, and `code`.
 ----
 
 |
 ----
-some *bold* text, _italic_ text, and `code`.
+some *bold* text, _italic_
+text, and `code`.
 ----
 
 | some *bold* text, _italic_ text, and `code`.
 
 |
 ----
-Indent lines to make them code blocks
+Indent lines to make them
+code blocks
 
   sum = a + b
   diff = a - b
@@ -257,7 +264,8 @@ Indent lines to make them code blocks
 
 |
 ----
-Indent lines to make them code blocks
+Indent lines to make them
+code blocks
 
   sum = a + b
   diff = a - b
