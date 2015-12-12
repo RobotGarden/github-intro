@@ -1,0 +1,31 @@
+= Exercise 4 Solution
+:imagesdir: ./images
+
+. On your local machine, edit the README file, adding this text to the bottom: ...
+
+. Commit the change to your local repository, but do not commit to the remote.
++
+_At this point you should see that your local *master* is ahead of the *origin/master* in the commit list._
+
+. On GitHub, edit the README again, adding this to the bottom: ...
+
+. Commit the change on GitHub.
+
+. In SourceTree, fetch remote changes by pressing the fetch button,
+image:fetch-button.png[Fetch button, 38, 49], and clicking OK. Or, from the command line, use `git fetch` and then `git status`.
++
+_In SourceTree there should be a fork in the development line in the commit list. This is an indication that you must merge. From the command line, `git status` will tell you that the two lines have diverged._
+
+. As you can see in the commit list for the _master_ branch, the two development lines are split. You must merge the changes on the server. Either use the _Pull_ button, or click _Merge_ and then select the commit on the server to merge into your local _Master_. Or, from the command line, use `git merge origin/master`._
++
+_You should have gotten a dialog box in SourceTree indicating that there are conflicts._
+
+. Resolve the conflicts and commit.
++
+_You can either resolve the conflicts in an editor or, if you have configured an exernal merge tool, launch it by right-clicking on the file in the *Working Copy* view and selecting *Resolve Conflicts > Launch External Merge Tool*._
+
+. Push the changes to the remote on GitHub.
++
+_All of *master*, *origin/master*, and *origin/HEAD* should be on the same commit again._
+
+link:part1.asciidoc#_exercise_4[Back to Exercise 4]

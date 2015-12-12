@@ -17,18 +17,19 @@ After participating in part 1 of this intro, you should be able to:
 * Edit files in your desktop and commit locally
 * Fix typos in commit messages
 * Push changes from your desktop to GitHub
+* Ignoring files
 * Understand the problems with editing both in desktop and GitHub
 * Fix problems caused by editing in both places
-* Participate in a Shared GitHub Repository (not forked)
+* Making releases
 
 === What's Not Covered
 
 In the time available, we won't be able to cover these topics. A follow-on class will address these.
 
-* Ignoring files
 * Forking a GitHub repository
 * Submitting pull requests
 * Responding to pull requests
+* Participate in a Shared GitHub Repository (not forked)
 * Branching and merging
 * Rebasing and rewriting history
 * Using the stash
@@ -491,6 +492,47 @@ There is also another shorthand: `HEAD` means the latest commit, `HEAD~1` means 
 git diff HEAD~1 HEAD
 ----
 
+== Getting Help
+
+=== Getting SourceTree Help
+
+From within SourceTree, the Menu option _Help > SourceTree_ Help launches a window allowing you to navigate through the available SourceTree documentation. Other menu items allow you to ask questions, raise issues, or request a new feature.
+
+In addition, there is a link:http://rancoud.com/sourcetree-git-use/[SourceTree/Git tutorial], also listed in <<Other Resources>>, above.
+
+=== Getting Help for the Command Line
+
+Git has built-in command-line help which is pretty good.
+
+`git help` gives general information about command-line options and available commands. +
+`git help _command_` gives help on a single command.
+
+For example, here is an excerpt of help for the `git clone` command:
+
+----
+$ git help clone
+GIT-CLONE(1)                      Git Manual                      GIT-CLONE(1)
+
+NAME
+       git-clone - Clone a repository into a new directory
+
+SYNOPSIS
+       git clone [--template=<template_directory>]
+                 [-l] [-s] [--no-hardlinks] [-q] [-n] [--bare] [--mirror]
+                 [-o <name>] [-b <name>] [-u <upload-pack>] [--reference <repository>]
+                 [--dissociate] [--separate-git-dir <git dir>]
+                 [--depth <depth>] [--[no-]single-branch]
+                 [--recursive | --recurse-submodules] [--] <repository>
+                 [<directory>]
+
+DESCRIPTION
+       Clones a repository into a newly created directory, creates
+       remote-tracking branches for each branch in the cloned repository
+...
+----
+
+In addition, I have found link:https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf[this cheet-sheat] helpful. And the link:https://git-scm.com/book/en/v2[Pro Git online book] is a detailed introduction to all aspects of Git.
+
 == Making Changes Locally
 
 The files in your repository are stored in three different ways. First, a _working copy_ is stored a normal files. The layout exactly matches what you will see on the GitHub server.
@@ -586,6 +628,26 @@ $ git push origin master
 
 This pushes to the remote named `origin` any changes on the `master` branch that are not present in the remote repository.
 
+=== Ignoring Files
+
+If your repository is for code, then you will probably create files during a build that you don't want to commit. You may have entire directories, such as `build` or `target` which should not be commited. To make Git ignore these files and directories, you can create a special file called `.gitignore`.
+
+==== Ignoring Files in SourceTree
+
+If there is a file in your _Working Copy_ that is showing as changed, but should not be commited, right-click on the file and select _Ignore_. You will then get a dialog box allowing you to select whether to ignore just that file, all files with that extension, etc. SourceTree will write the `.gitignore` file for you.
+
+image:ignore.png[Ignoring files, 534, 250, role="thumb"]
+
+==== Ignoring Files from the Command Line
+
+Create a `.gitignore` file in a text editor. You can add lines by hand telling it what to ignore. For example, to ignore all `.out` files and the `target` directory, it might look like this:
+
+.The .gitignore file
+----
+*.out
+target
+----
+
 === Exercise 3
 
 . Install SourceTree or the Git command-line tools, if not already installed. Then clone the repository you created in <<Exercise 2>>.
@@ -651,63 +713,130 @@ link:ex3-solution.asciidoc[Exercise 3 Solution]
 
 === Renaming and Removing Files
 
-== Fixing Problems
+To remove a file, you can simply delete it. After this, you must stage the removal, either in the SourceTree _Working Copy_ view or using `git add _file_` (kind of counter-intuitive).
+
+Alternatively, from the command line you can use `git rm _file_` from the command line. This removes the file and stages it in one step.
+
+To rename a file it is a little trickier. If you just rename using the shell, the file explorer, or the finder, Git--and SourceTree--cannot tell the difference from a remove and an add. So you must tell Git or SourceTree to rename the file for you.
+
+Renaming a file in SourceTree::
+In the _Working Copy_ view, change the view from _Pending files, sorted by path_ to _All files, sorted by path_ by clicking and selecting _All files_. Then, right-click on the file and select _Move..._. You can then type a new name for the file.
+
+Renaming a file in the command line:
+Use `git rm _file_ _newname_`. This tells Git to rename the file and stage the change.
+
+== Merge Conflicts
+
+Normally, you should either edit files locally or on GitHub, but never in both places. However, it's easy to forget and make changes both locally and remotely. If you do this without synching, you will cause the two locations to _diverge_. In that case, you will have to merge the changes, sometimes using manual edits.
+
+=== How to Cause a Merge Conflict
+
+. Edit a file locally, commit changes, but don't push to the origin.
+
+. Edit the same file remotely, on GitHub.
+
+. In SourceTree, click the _Fetch_ button. Or, from the command line, use `git fetch`.
+
+At this point the local _master_ branch and the _origin/master_ branch both have changes. The two lines have _diverged_. You can see this in SourceTree as a fork in the commit list.
+
+image:fork.png[A fork in the commit list, 527, 115, role="thumb"]
+
+From the command line, `git status` tells you the same thing:
+
+----
+$ git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 27 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+nothing to commit, working directory clean
+$
+----
 
 === Merging Remote Changes
 
-== Making Releases
+==== Merging Changes in SourceTree
 
-A `.gitignore` file--important for code repositories.
+In SourceTree, use the _Pull_ button to pull the remote changes into your local _master_ branch. If Git can determine that the changes don't overlap, it will merge them automatically.
 
-== Ignoring Files
+If Git/SourceTree cannot merge the changes automatically, you will get this warning:
 
-== Getting Help
+image:merge-conflicts.png[Merge conflicts warning, 532, 333]
+
+Once you click OK, you can see that the changes listed show both changes, bracked by *<<<* and *>>>*, and separated by *===*.
+
+image:conflict-lines.png[Conflicting lines, 504, 266]
+
+You can edit the file in a text editor or launch an external merge tool, if you have one configured. On OS X, if you have XCode installed, SourceTree will automatically use the XCode merge tool. Otherwise you can install the free tool link:https://www.perforce.com/product/components/perforce-visual-merge-and-diff-tools[P4Merge] on either OS X or Windows. You can invoke the merge tool by right-clicking on the conflicting file and selecting _Resolve Conflicts > Launch External Merge Tool_.
+
+Once you resolve the conflicts, stage the change and commit. SourceTree will suggest a commit message, but you can edit it.
+
+==== Merging Changes on the Command Line
+
+. Use `git pull origin/master` to pull the changes into your local branch.
+
+. Use a text editor to resolve any conflicts that are marked by *<<<*, *===*, and *>>>*.
+
+. Commit the changes using `git commit`.
+
+=== Exercise 4
+
+. On your local machine, edit the README file, adding this text to the bottom:
++
+----
+## Our Land
+
+This land is your land,
+this land is my land...
+----
+
+. Commit the change to your local repository, but do not commit to the remote.
+
+. On GitHub, edit the README again, adding this to the bottom:
++
+----
+## Hobo
+
+Go to sleep my weary hobo,
+let the towns drift slowly by.
+----
+
+. Commit the change on GitHub.
+
+. In SourceTree, fetch remote changes by pressing the fetch button,
+image:fetch-button.png[Fetch button, 38, 49], and clicking OK. Or, from the command line, use `git fetch` and then `git status`.
+
+. As you can see in the commit list for the _master_ branch, the two development lines are split. You must merge the changes on the server. Either use the _Pull_ button, or click _Merge_ and then select the commit on the server to merge into your local _Master_. Or, from the command line, use `git merge origin/master`._
+
+. Resolve the conflicts and commit.
+
+. Push the changes to the remote on GitHub.
+
+link:ex4-solution.asciidoc[Exercise 4 solution]
 
 == Amending a Commit
 
-== GitHub History View
+Sometimes you make a commit and then want to change something, such as a typo in the commit message. If you have not yet pushed your changes to the remote, you still have a chance to amend the commit.
 
-image:github-history.png[]
+=== Amending Commits in SourceTree
 
-== Viewing Git History
+In SourceTree, select the menu option _Repository > Interactive Rebase_. (The reason it is called _rebase_ is because editing a commit is a subset of what you can do through the _rebase_ features of Git, which are beyond the scope of this intro.) From this dialog you can do any of these things:
 
-image:git-graph.png[]
+* Double-click on a commit to change the commit message.
+* Select a commit and combine with the prior commit by pressing _Squash with previous_.
+* Delete a commit.
+* Reorder commits by dragging them around. (This can cause merge conflicts that you will have to resolve!)
 
-----
-commit ff13b303d45bd2584576814112b5bb5ce3e468d4
-Author: Federico Fissore <f.fissore@arduino.cc>
-Date:   Fri Dec 4 14:14:15 2015 +0100
+Why would you want to squash commits together? Some say _never_, but others like to structure the commits they push to the origin to match intent rather than fact. So you may make many small commits while you are developing, but squash them together into a smaller number that reflect the features you are adding rather than the order you did work.
 
-    Forgot to remove old arduino-builder SHAs
+== Making Releases
 
-commit 580bcb500361ea9735d5c74a9f3ce7b7b45d715c
-Author: Federico Fissore <f.fissore@arduino.cc>
-Date:   Fri Dec 4 14:03:54 2015 +0100
+For code repositories, and sometimes for other repositories, it may be beneficial to package a snapshot up as a ZIP or tar file and make it available for downloading. GitHub has a feature that performs this operation. From the main page of your repository, click the _releases_ link. You should get this page.
 
-    Updating arduino-builder to 1.3.6
+image:release-page.png[The GitHub releases page, 674, 372, role="thumb"]
 
-commit 9a39e5e6aca5fafd61e72dc65ac2bd9a76df8a42
-Author: Federico Fissore <f.fissore@arduino.cc>
-Date:   Fri Dec 4 09:55:17 2015 +0100
+At this point, click _Create a new release_. You should get this form for assigning a tag to the release.
 
-    Some configuration may totally miss network interfaces, even localhost. Fixes #4249
+image:release-tag.png[Setting a release tag, 501, 289, role="thumb"]
 
-commit a2848716a06936c375355e02498c3efccd9153e4
-Author: Federico Fissore <f.fissore@arduino.cc>
-Date:   Thu Dec 3 16:34:25 2015 +0100
-
-    Added -Dportable=true param to ant. You can build your own portable version of
-    the IDE
-
-commit 66117a5cc0510c7f63d8ba7c6e740aa29a8b473c
-Author: Federico Fissore <f.fissore@arduino.cc>
-Date:   Thu Dec 3 11:05:25 2015 +0100
-
-    Burn Bootloader was run in the UI thread, avoiding intermediate messages to be printed to IDE console
-
-commit 91245e216432bfac6bb1ff9fde705989d5847bf3
-Author: Federico Fissore <f.fissore@arduino.cc>
-Date:   Thu Dec 3 09:54:30 2015 +0100
-
-    Updating arduino-builder to 1.3.5
-----
+Enter a tag with a version number, such as `v1.0`. You can also indicate that the release is a _Prerelease_ by checking a box at the bottom. When you click _Publish release_, GitHub will create two packages, a `.zip` file and a `.tar.gz` file containing a snapshot of the current repository state. As well, it adds your tag to the repository, which you can see in the commit list in SourceTree or by using `git tag`.
