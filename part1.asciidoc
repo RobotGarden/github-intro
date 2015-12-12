@@ -585,10 +585,10 @@ This pushes to the remote named `origin` any changes on the `master` branch that
 . Edit the README file, adding this new content:
 +
 ----
-## Preamble
+## Feelin' Groovy
 
-We the people of the United States of America, in order to form a
-more perfect union...
+Slow down, you move too fast, you got to make the morning last,
+just kickin' down the cobblestones.
 ----
 
 . Move the README file to the staging area and commit the changes. Verify that the log shows a new commit.
@@ -623,18 +623,17 @@ When in the course of human events, it becomes necessary...
 Old text:
 +
 ----
-We the people of the United States of America, in order to form a
-more perfect union...
+just kickin' down the cobblestones.
 ----
 +
 New text:
 +
 ----
-We the rulers of the dictatorship of Pottsylvania, in order to
-form a more perfect police state...
+just kickin' down the cobblestones, lookin' for fun
+and feeling groovy.
 ----
 
-. Stage the changes to the README and commit.
+. Stage the changes to the README and commit. You should notice that your local repository is now 2 commits ahead of the remote.
 
 . Push both commits to the GitHub origin. Verify that both the local _master_ and _origin/master_ are on the same commit.
 
@@ -652,6 +651,11 @@ link:ex3-solution.asciidoc[Exercise 3 Solution]
 
 A `.gitignore` file--important for code repositories.
 
+== Ignoring Files
+
+== Getting Help
+
+== Amending a Commit
 
 == GitHub History View
 
