@@ -1,0 +1,4 @@
+= Exercise 3 Solution
+:imagesdir: ./images
+
+link:part1.asciidoc#_exercise_3[Return to Exercise 3]

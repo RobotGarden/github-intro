@@ -434,6 +434,12 @@ git clone https://github.com/your-user-name/repository-name
 
 In SourceTree, when looking at the `master` branch, you see a complete list of changes that have been made. You can click on any change to see details of what was changed in each file.
 
+//image:sourcetree-commit-list.png[Sourcetree commit list, 606, 145, role="thumb"]
+
+image:commit-details.png[Showing commit details, 775, 557]
+
+You'll notice that the selected view in the left sidebar is _master_ under _Branches_. This is because we are working on a single branch, which is by default called _master_.
+
 From the command line, you use `git log` to see changes.
 
 ----
@@ -465,6 +471,17 @@ Date:   Mon Dec 7 09:27:01 2015 -0800
 $
 ----
 
+And if you want to see the actual changes, you have to use the commit ID, such as `5d5a238e3cbe51a87de418832d980a049ccd744f`. Thankfully, Git allows you to use at least the first four characters, such as `5d5a`. This command will show the changes between the last two commits--in other words, the latest changes.
+
+----
+git diff 5d5a 3a66
+----
+
+There is also another shorthand: `HEAD` means the latest commit, `HEAD~1` means one before the latest, `HEAD~2` means two before, etc. So this command is equivalent to that above:
+
+----
+git diff HEAD~1 HEAD
+----
 
 == Making Changes Locally
 
@@ -478,13 +495,94 @@ image:areas.png[The areas a file may be in, 401, 221, role="thumb"]
 
 NOTE: The staging area and local copy of the repository are stored in a `.git` directory. You should rarely, if ever, manipulate any of those files directly.
 
-=== Editing a File
+=== Editing Files
 
 To make changes to a file, simply edit it. (Or copy a new file on top of it.) There is no "`checkout`" process in Git--all files are always editable.
 
-Use `^R` or Command-R to refresh the view by getting local file status.
+Once you edit a file or create a new file you will see a number after the _Working Copy_ link in the left sidebar. This shows how many files have been changed or added, but not yet committed. If you go to that view, you see the files in the _Unstaged_ area.
+
+image:unstaged-files.png[Files in the unstaged area, 775, 557]
+
+If you have made changes and don't yet see them in the _Working Copy_ view, use `^R` or Command-R to refresh the view.
+
+You can move files back and forth between the staged and unstaged areas by using the checkboxes, or dragging, or right-clicking and choosing a menu option, or by using ellipsis menu button image:ellipsis-menu.png[Ellipsis menu button, 35, 27]. Once you are satisfied with the changes you can commit them by clicking in the _Commit message_ box and filling out the commit form:
+
+image:commit-panel.png[The commit panel in SourceTree, 604, 105, file="thumb"]
+
+=== Committing from the Command Line
+
+From the command line there are several commands that do the equivalent of the various SourceTree panels.
+
+|===
+| Command | Purpose
+
+| `git status` | Shows the status of the working and staging areas
+
+| `git diff` | Shows the changes that have not yet been staged
+
+| `git diff --cached` | Shows the changes that are already staged
+
+| `git add file` | Adds a file to the staging area
+
+| `git reset HEAD file` | Unstages a file without losing changes
+
+| `git checkout` ``--`` `file` | Discard changes in a modified file in the working area
+
+|===
+
+You can also use a shorthand: `git add -A` adds all new files, changed files, and removed files to the staging area.
+
+You'll notice if you do `git status` that it shows the branch we are working on in the first line of output.
+
+----
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$
+----
+
+Once you stage the files to be committed, you perform the actual commit via the command `git commit`. There are two forms.
+
+`git commit -m "your commit message"`:: Commits with the given message
+`git commit`:: Spawns your configured editor to edit a commit message, and commits when you exit the editor
 
 === Pushing Changes to GitHub
+
+You can commit once or many times locally, but eventually you will want to synchronize your changes with the copy on GitHub. In SourceTree, to push your changes, press the _Push_ button image:push-button.png[Push button, 40, 55]. You will be asked which branch to push, but this will default to _master_, the only branch. Once you click `OK`, any local commits not present on the server will be pushed to GitHub. Afterward, you will see that the local _master_ branch is on the same commit as `origin/master` and `origin/HEAD`, which are the SourceTree indications of the remote (GitHub) state.
+
+image:up-to-date.png[All branches are in sync, 480, 45, role="thumb"]
+
+=== Pushing Changes from the Command Line
+
+You can see the list of remote locations corresponding to your local repository (equivalent to the _Remotes_ list in the SourceTree sidebar) via:
+
+----
+$ git remote -v
+origin	https://github.com/merose/git-class-test.git (fetch)
+origin	https://github.com/merose/git-class-test.git (push)
+$
+----
+
+To push the local changes to the remote:
+
+----
+$ git push origin master
+----
+
+This pushes to the remote named `origin` any changes on the `master` branch that are not present in the remote repository.
+
+=== Exercise 3
+
+. Install SourceTree or the Git command-line tools, if not already installed. Then clone the repository you created in <<Exercise 2>>.
+
+link:ex3-solution.asciidoc[Exercise 3 Solution]
 
 == More Local Changes
 
