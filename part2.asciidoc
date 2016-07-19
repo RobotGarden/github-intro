@@ -1,0 +1,9 @@
+= Git/GitHub Intro Part 2
+
+== Ideas for Breaking Up Git Intro
+
+. Git/GitHub as a sole author (create repository, commit, push)
+. Git/GitHub as a contributing author (commit, push, fetch, pull, stash, merge)
+. Git/GitHub as a reuser (fork, commit, fetch, pull, merge to development branch)
+. Git/GitHub as a contributing reuser (fork, checkin, create pull request, keep up-to-date (fetch/pull))
+. Git/GitHub as a publisher (respond to pull requests, create releases, use issue tracking system)
