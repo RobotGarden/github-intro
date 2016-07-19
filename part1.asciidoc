@@ -535,11 +535,11 @@ In addition, I have found link:https://training.github.com/kit/downloads/github-
 
 == Making Changes Locally
 
-The files in your repository are stored in three different ways. First, a _working copy_ is stored a normal files. The layout exactly matches what you will see on the GitHub server.
+The files in your repository are stored in three different ways. First, a _working copy_ is stored as normal files. The layout exactly matches what you will see on the GitHub server.
 
 Second, after you make changes to a file you must _stage_ the changes before committing. This copies the file to a staging area. If you change your mind before commiting, you can _unstage_ the file as well, deleting the staged copy.
 
-Finall, you can commit changes from the staging area to the local repository. The local repository is a complete copy of what is on the GitHub server, except for any changes you have not yet _pushed_ to the server, or any changes made on the server that you have not yet _pulled_ to your local copy. Any other users working in the same repository will also have a complete copy of all versions.
+Finally, you can commit changes from the staging area to the local repository. The local repository is a complete copy of what is on the GitHub server, except for any changes you have not yet _pushed_ to the server, or any changes made on the server that you have not yet _pulled_ to your local copy. Any other users working in the same repository will also have a complete copy of all versions.
 
 image:areas.png[The areas a file may be in, 401, 221, role="thumb"]
 
@@ -723,7 +723,7 @@ Renaming a file in SourceTree::
 In the _Working Copy_ view, change the view from _Pending files, sorted by path_ to _All files, sorted by path_ by clicking and selecting _All files_. Then, right-click on the file and select _Move..._. You can then type a new name for the file.
 
 Renaming a file in the command line:
-Use `git rm _file_ _newname_`. This tells Git to rename the file and stage the change.
+Use `git mv _file_ _newname_`. This tells Git to rename the file and stage the change.
 
 == Merge Conflicts
 
