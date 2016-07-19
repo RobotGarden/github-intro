@@ -7,3 +7,10 @@
 . Git/GitHub as a reuser (fork, commit, fetch, pull, merge to development branch)
 . Git/GitHub as a contributing reuser (fork, checkin, create pull request, keep up-to-date (fetch/pull))
 . Git/GitHub as a publisher (respond to pull requests, create releases, use issue tracking system)
+
+== Other Things to Cover
+
+* Branch naming (feature/bug branches, development, master, releases)
+* Use of stash
+* Merge conflicts
+* Rebasing, including interactive rebase
